@@ -7,3 +7,5 @@ pipeline {
                 bat "folder.py"
             }
         }
+    }
+}
