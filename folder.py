@@ -1,9 +1,14 @@
-import os, time
-path = "/Plan"
-now = time.time()
+from pathlib import Path
+import arrow
 
-for filename in os.listdir(path):
-  filestamp = os.stat(os.path.join(path, filename)).st_mtime
-  filecompare = now - 7 * 86400
-  if filestamp < filecompare:
-    print(filename)
+filesPath = r"D:\Plan"
+
+criticalTime = arrow.now().shift(hours=+5).shift(days=-7)
+
+for item in Path(filesPath).glob('*'):
+    if item.is_file():
+        print (str(item.absolute()))
+        itemTime = arrow.get(item.stat().st_mtime)
+        if itemTime < criticalTime:
+            #remove it
+            pass
