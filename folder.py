@@ -1,6 +1,6 @@
 import os
 import time
-base_path = '/home/kishore/my_files'
+base_path = '/Plan'
 
 def remove_files(dir_path, n):
     all_files = os.listdir(dir_path)
